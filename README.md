@@ -10,4 +10,4 @@
 * Обработчики событий в JS
 * Добавление и удаление классов и атрибутов HTML элементов в JS
 
-https://qmasee.github.io/mesto/
+Ссылка - https://qmasee.github.io/mesto/
