@@ -8,6 +8,18 @@
   padding: 0;
   background-repeat: no-repeat;
   display: inline-flex;
+  transition: opacity .2s ease-out;
+}
+
+.profile__edit:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 730px) {
+  .profile__edit {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 @media screen and (max-width: 320px) {

@@ -9,7 +9,11 @@
   margin: 0;
   border: none;
   display: flex;
-  margin-left: 244px;
+  transition: opacity .2s ease-out;
+}
+
+.profile__add:hover {
+  opacity: .6;
 }
 
 @media screen and (max-width: 320px) {

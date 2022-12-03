@@ -6,6 +6,19 @@
   line-height: 48px;
   margin: 0 18px 0 0;
   display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 294px;
+}
+
+@media screen and (max-width: 730px) {
+  .profile__name {
+    margin: 0 10px 14px auto;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -14,6 +27,6 @@
       line-height: 33px;
       text-align: center;
       margin: 0 10px 7px 0;
-      width: 189px;
+      max-width: 189px;
     }
 }

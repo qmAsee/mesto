@@ -1,8 +1,8 @@
 .elements {
-  max-width: calc(100% - 200px * 2);
+  max-width: 880px;
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, 282px);
   grid-template-rows: repeat(2, 1fr);
   column-gap: 17px;
   row-gap: 20px;
@@ -10,6 +10,14 @@
   margin-top: 51px;
   padding: 0;
   align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  .elements {
+    grid-template-columns: repeat(auto-fit, 282px);
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 660px) {
