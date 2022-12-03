@@ -1,7 +1,7 @@
 .popup__close {
   position: absolute;
- width: 32px;
-  height: 32px; 
+  width: 32px;
+  height: 32px;
   top: -40px;
   right: -40px;
   transition: opacity .2s ease-out;
