@@ -1,7 +1,7 @@
 .popup__button {
   margin-top: 49px;
   width: 100%;
-  padding: 14px 124px 18px;
+  padding: 14px 124px 18px 125px;
   box-sizing: border-box;
   background-color: black;
   color: white;
@@ -11,7 +11,6 @@
   border: none;
   border-radius: 2px;
   transition: opacity .2s ease-out;
-  padding: 0;
   cursor: pointer;
 }
 
