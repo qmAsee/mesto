@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   display: inline-flex;
   transition: opacity .2s ease-out;
+  cursor: pointer;
 }
 
 .profile__edit:hover {
@@ -16,13 +17,6 @@
 }
 
 @media screen and (max-width: 730px) {
-  .profile__edit {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-@media screen and (max-width: 320px) {
   .profile__edit {
     width: 18px;
     height: 18px;

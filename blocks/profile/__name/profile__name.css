@@ -14,8 +14,9 @@
 
 @media screen and (max-width: 730px) {
   .profile__name {
-    margin: 0 10px 14px auto;
-    font-weight: 500;
+    margin-right: 10px;
+    margin-bottom: 14px;
+    margin-left: auto;
     font-size: 27px;
     line-height: 33px;
   }
@@ -23,10 +24,9 @@
 
 @media screen and (max-width: 320px) {
     .profile__name {
-      font-size: 27px;
-      line-height: 33px;
       text-align: center;
-      margin: 0 10px 7px 0;
+      margin-bottom: 7px;
+      margin-left: 0;
       max-width: 189px;
     }
 }

@@ -8,9 +8,6 @@ let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__description');
 let editSave = document.querySelector('.popup__content');
 
-editProfile.addEventListener('click', openPopup);
-popupClose.addEventListener('click', closePopup);
-
 function openPopup() {
   popup.classList.add('popup_opened');
   popupName.value = profileName.innerText;
@@ -35,4 +32,7 @@ function handleFormSubmit(event) {
 }
 
 editSave.addEventListener('submit', handleFormSubmit);
+editProfile.addEventListener('click', openPopup);
+popupClose.addEventListener('click', closePopup);
+
 
