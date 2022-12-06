@@ -20,10 +20,10 @@
 }
 
 @media screen and (max-width: 660px) {
-    .elements {
-      display: flex;
-      flex-direction: column;
-      max-width: calc(100% - 19px * 2);
-      margin-top: 36px;
-    }
+  .elements {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 19px * 2);
+    margin-top: 36px;
+  }
 }
