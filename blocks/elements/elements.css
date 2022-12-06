@@ -14,7 +14,6 @@
 
 @media screen and (max-width: 900px) {
   .elements {
-    grid-template-columns: repeat(auto-fit, 282px);
     width: 90%;
   }
 }
