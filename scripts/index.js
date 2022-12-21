@@ -17,8 +17,6 @@ const cardPopupImage = document.querySelector('.popup__image')
 const cardPopupCaption = document.querySelector('.popup__caption');
 const titleCardElem = document.querySelector('.popup__input_type_place-name');
 const linkCardElem = document.querySelector('.popup__input_type_place-link');
-const cardTemplate = document.querySelector('#card-template').content;
-const cardContentClone = cardTemplate.querySelector('.card').cloneNode(true);
 
 function openPopup(item) {
   item.classList.add('popup_opened');
@@ -51,6 +49,7 @@ popupClose.forEach(i => i.addEventListener('click', () => {
   const closeBtn = i.closest('.popup');
   closePopup(closeBtn);
 }));
+
 popup.forEach(i => i.addEventListener('click', (evt) => {
   const popupCloseEmptySpace = i.closest('.popup')
   if(evt.target == popupCloseEmptySpace) {
@@ -93,9 +92,6 @@ const cardElements = initialCards.map(function (item) {
   }
 });
 
-
-
-
 const createCard = (cardTitle, cardLink) => {
   const cardTemplate = document.querySelector('#card-template').content;
   const cardContentClone = cardTemplate.querySelector('.card').cloneNode(true);
@@ -129,7 +125,6 @@ const addCard = (newCard) => {
 cardElements.forEach((item) => {
   addCard(createCard(item.name, item.link))
 })
-
 
 popupAddSave.addEventListener('submit', function (evt) {
   evt.preventDefault();
