@@ -119,16 +119,15 @@ const createCard = (cardTitle, cardLink) => {
     cardPopupImage.alt = cardTitle;
     cardPopupCaption.textContent = cardTitle;
   });
-  
-  const addCard = () => {
-    cardsContainer.prepend(cardContentClone);
-  }
-
-  addCard();
+  return cardContentClone
 } 
 
+const addCard = (newCard) => {
+  cardsContainer.prepend(newCard);
+}
+
 cardElements.forEach((item) => {
-  createCard(item.name, item.link)
+  addCard(createCard(item.name, item.link))
 })
 
 
