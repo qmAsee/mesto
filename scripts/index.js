@@ -113,16 +113,16 @@ const createCard = (cardTitle, cardLink) => {
     cardContentClone.remove();
   });
 
-  const addCard = () => {
-    cardsContainer.prepend(cardContentClone);
-  }
-
   cardContentClone.querySelector('.card__image').addEventListener('click', function() {
     openPopup(cardPopup);
     cardPopupImage.src = cardLink;
     cardPopupImage.alt = cardTitle;
     cardPopupCaption.textContent = cardTitle;
   });
+  
+  const addCard = () => {
+    cardsContainer.prepend(cardContentClone);
+  }
 
   addCard();
 } 
