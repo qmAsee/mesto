@@ -129,7 +129,7 @@ cardElements.forEach((item) => {
 popupAddSave.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
-  createCard(titleCardElem.value, linkCardElem.value);
+  addCard(createCard(titleCardElem.value, linkCardElem.value));
   closePopup(addCardPopup);
 
   titleCardElem.value = "";
