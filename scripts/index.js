@@ -116,8 +116,6 @@ const createCard = (cardTitle, cardLink) => {
   const addCard = () => {
     cardsContainer.prepend(cardContentClone);
   }
-  
-  addCard();
 
   cardContentClone.querySelector('.card__image').addEventListener('click', function() {
     openPopup(cardPopup);
@@ -125,6 +123,8 @@ const createCard = (cardTitle, cardLink) => {
     cardPopupImage.alt = cardTitle;
     cardPopupCaption.textContent = cardTitle;
   });
+
+  addCard();
 } 
 
 cardElements.forEach((item) => {
