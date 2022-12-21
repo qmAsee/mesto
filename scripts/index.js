@@ -1,13 +1,13 @@
 const editProfile = document.querySelector('.profile__edit');
 const popup = document.querySelectorAll('.popup');
-const popupContent = document.querySelector('.popup__content')
 const editPopup = document.querySelector('.popup_type_edit')
 const popupClose = document.querySelectorAll('.popup__close');
 const popupName = document.querySelector('.popup__input_type_name');
 const popupProfession = document.querySelector('.popup__input_type_profession');
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__description');
-const editSave = document.querySelector('.popup__content');
+const popupEditSave = document.querySelector('.popup__form_edit');
+const popupAddSave = document.querySelector('.popup__form_add')
 const addCardPopup = document.querySelector('.popup_type_add')
 const addCardButton = document.querySelector('.profile__add')
 const cardsContainer = document.querySelector('.elements');
@@ -15,9 +15,10 @@ const cardAddButton = document.querySelector('.popup__button_type_add');
 const cardPopup = document.querySelector('.popup_type_pic')
 const cardPopupImage = document.querySelector('.popup__image')
 const cardPopupCaption = document.querySelector('.popup__caption');
-
-
-
+const titleCardElem = document.querySelector('.popup__input_type_place-name');
+const linkCardElem = document.querySelector('.popup__input_type_place-link');
+const cardTemplate = document.querySelector('#card-template').content;
+const cardContentClone = cardTemplate.querySelector('.card').cloneNode(true);
 
 function openPopup(item) {
   item.classList.add('popup_opened');
@@ -34,7 +35,7 @@ function handleFormSubmit(event) {
   closePopup(editPopup);
 }
 
-editSave.addEventListener('submit', handleFormSubmit);
+popupEditSave.addEventListener('submit', handleFormSubmit);
 
 editProfile.addEventListener('click', function () {
   openPopup(editPopup);
@@ -60,28 +61,28 @@ popup.forEach(i => i.addEventListener('click', (evt) => {
 
 const initialCards = [
   {
-    name: 'Спанч Боб',
-    link: 'https://images.unsplash.com/photo-1618962419009-5a82d310c3be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80'
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
   },
   {
-    name: 'Патрик Стар',
-    link: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80'
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
   },
   {
-    name: 'Сквидвард Тэнтаклз',
-    link: 'https://images.unsplash.com/photo-1628944681206-2ee8d63b0a6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
   },
   {
-    name: 'Мистер Крабс',
-    link: 'https://images.unsplash.com/photo-1582925115738-ce07891d0e43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80'
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
   },
   {
-    name: 'Сэнди Чикс',
-    link: 'https://images.unsplash.com/photo-1610629029949-20c90405b12b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
   },
   {
-    name: 'Улитка Гэри',
-    link: 'https://images.unsplash.com/photo-1603218853073-ce98875097fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1189&q=80'
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
 
@@ -92,19 +93,17 @@ const cardElements = initialCards.map(function (item) {
   }
 });
 
-cardElements.forEach((item) => {
-  addCard(item.name, item.link)
-})
 
-function addCard(cardTitle, cardLink) {
+
+
+const createCard = (cardTitle, cardLink) => {
   const cardTemplate = document.querySelector('#card-template').content;
   const cardContentClone = cardTemplate.querySelector('.card').cloneNode(true);
+  const cardImage = cardContentClone.querySelector('.card__image');
 
-  cardContentClone.querySelector('.card__image').src = cardLink;
-  cardContentClone.querySelector('.card__image').alt = cardTitle;
+  cardImage.src = cardLink;
+  cardImage.alt = cardTitle;
   cardContentClone.querySelector('.card__title').textContent = cardTitle;
-
-  cardsContainer.prepend(cardContentClone);
 
   cardContentClone.querySelector('.card__like').addEventListener('click', function(evt) {
     evt.target.classList.toggle('card__like_active');
@@ -114,21 +113,29 @@ function addCard(cardTitle, cardLink) {
     cardContentClone.remove();
   });
 
+  const addCard = () => {
+    cardsContainer.prepend(cardContentClone);
+  }
+  
+  addCard();
+
   cardContentClone.querySelector('.card__image').addEventListener('click', function() {
     openPopup(cardPopup);
     cardPopupImage.src = cardLink;
     cardPopupImage.alt = cardTitle;
     cardPopupCaption.textContent = cardTitle;
   });
-
-
 } 
 
-cardAddButton.addEventListener('click', function (evt) {
+cardElements.forEach((item) => {
+  createCard(item.name, item.link)
+})
+
+
+popupAddSave.addEventListener('submit', function (evt) {
   evt.preventDefault();
-  const titleCardElem = document.querySelector('.popup__input_type_place-name');
-  const linkCardElem = document.querySelector('.popup__input_type_place-link');
-  addCard(titleCardElem.value, linkCardElem.value);
+
+  createCard(titleCardElem.value, linkCardElem.value);
   closePopup(addCardPopup);
 
   titleCardElem.value = "";
