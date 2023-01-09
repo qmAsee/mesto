@@ -10,6 +10,8 @@ const validationConfig = {
     errorClassHidden: 'popup__error',
 };
 
+
+
 function showInputError(formElement, inputElement, config) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
@@ -27,6 +29,7 @@ function hideInputError(formElement, inputElement, config) {
   errorElement.textContent = inputElement.validationMessage;
   inputElement.classList.remove(config.inputErrorClass);
 }
+
 
 function checkInputValidity(formElement, inputElement, config) {
   if (!inputElement.validity.valid) {
@@ -72,7 +75,7 @@ function enableValidation(config) {
   })
 }
 
-enableValidation(validationConfig);
+
 
 
 
