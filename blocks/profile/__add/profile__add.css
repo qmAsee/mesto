@@ -11,6 +11,7 @@
   display: flex;
   transition: opacity .2s ease-out;
   cursor: pointer;
+  outline: none;
 }
 
 .profile__add:hover {

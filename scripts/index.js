@@ -20,10 +20,19 @@ const linkCardElem = document.querySelector('.popup__input_type_place-link');
 
 function openPopup(item) {
   item.classList.add('popup_opened');
+  document.addEventListener('keyup', escClose);
 }
 
 function closePopup(item) {
   item.classList.remove('popup_opened');
+  document.removeEventListener('keyup', escClose);
+}
+
+function escClose(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopups = document.querySelector('.popup_opened')
+    closePopup(openedPopups)
+  }
 }
 
 function submitEditProfileForm(event) {
@@ -52,11 +61,11 @@ buttonsClosePopup.forEach(button => button.addEventListener('click', () => {
 
 popups.forEach(popup => popup.addEventListener('click', (evt) => {
   const popupCloseEmptySpace = popup.closest('.popup')
+
   if(evt.target === popupCloseEmptySpace) {
     closePopup(popupCloseEmptySpace);
   }
 }));
-
 
 const initialCards = [
   {
@@ -134,7 +143,6 @@ formAddCard.addEventListener('submit', function (evt) {
 
   formAddCard.reset();
 });
-
 
 
 
