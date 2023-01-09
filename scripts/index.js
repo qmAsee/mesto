@@ -59,11 +59,9 @@ buttonsClosePopup.forEach(button => button.addEventListener('click', () => {
   closePopup(closeBtn);
 }));
 
-popups.forEach(popup => popup.addEventListener('click', (evt) => {
-  const popupCloseEmptySpace = popup.closest('.popup')
-
-  if(evt.target === popupCloseEmptySpace) {
-    closePopup(popupCloseEmptySpace);
+popups.forEach(popups => popups.addEventListener('click', (evt) => {
+  if(evt.target === popups) {
+    closePopup(popups);
   }
 }));
 
