@@ -26,7 +26,7 @@ function hideInputError(formElement, inputElement, config) {
 
   errorElement.classList.add(config.errorClassHidden);
   errorElement.classList.remove(config.errorClass);
-  errorElement.textContent = inputElement.validationMessage;
+  errorElement.textContent = ' ';
   inputElement.classList.remove(config.inputErrorClass);
 }
 
@@ -74,6 +74,7 @@ function enableValidation(config) {
     setEventListeners(formElement, config);
   })
 }
+
 
 
 
