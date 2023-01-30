@@ -16,6 +16,9 @@ const buttonOpenPopupAddCard = document.querySelector('.profile__add')
 const cardsContainer = document.querySelector('.elements');
 const titleCardElem = document.querySelector('.popup__input_type_place-name');
 const linkCardElem = document.querySelector('.popup__input_type_place-link');
+const popupImage = document.querySelector('.popup_type_pic')
+const popupImagePic = document.querySelector('.popup__image');
+const popupImageCap = document.querySelector('.popup__caption');
 
 const editPopupValidation = new FormValidator(validationConfig, popupEditSave);
 const addPopupValidation = new FormValidator(validationConfig, formAddCard);
@@ -105,23 +108,34 @@ const cardElements = initialCards.map(function (item) {
 });
 
 const createCard = (item) => {
-  const card = new Card(item, '.card-template');
+  const card = new Card(item, '.card-template', handleCardClick);
   const newCard = card.generateCard();
-  addCard(newCard);
+  return newCard
 }
 
-const addCard = (card) => {
-  cardsContainer.prepend(card);
+initialCards.forEach((item) => {
+  cardsContainer.prepend(createCard(item));
+})
+
+const addCard = (item) => {
+  cardsContainer.prepend(item);
 }
 
 cardElements.forEach((item) => {
   createCard(item)
 })
 
+function handleCardClick(name, link) {
+  popupImagePic.src = link; 
+  popupImagePic.alt = name;
+  popupImageCap.textContent = name;
+  openPopup(popupImage);
+}
+
 formAddCard.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
-  createCard({name: titleCardElem.value, link: linkCardElem.value});
+  addCard(createCard({name: titleCardElem.value, link: linkCardElem.value}));
   closePopup(addCardPopup);
   formAddCard.reset();
 });

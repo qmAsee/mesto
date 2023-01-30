@@ -8,7 +8,6 @@ export const validationConfig = {
   errorClassHidden: 'popup__error',
 };
 
-
 export class FormValidator {
 constructor(validationConfig, formElement) {
   /* ПЕРЕМЕННЫЕ*/
@@ -71,7 +70,6 @@ _toggleButtonState() {
 }
 
 _setEventListeners() {
-  
   this._toggleButtonState(this._inputList);
 
   this._inputList.forEach((inputElement) => {
@@ -83,11 +81,7 @@ _setEventListeners() {
 }
 
 enableValidation() {
-  const formList = Array.from(document.querySelectorAll(this._formSelector));
-
-  formList.forEach(() => {
-    this._setEventListeners();
-  })
+ this._setEventListeners();
 }
 
 disableSubmitButton() {
