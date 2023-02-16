@@ -12,9 +12,9 @@
   //КОНСТАНТЫ ПОПАПОВ
   
     // Селекторы попапов
- export const popupTypeEdit = document.querySelector('.popup_type_edit'); // попап редактирования профиля
- export const popupTypeAdd = document.querySelector('.popup_type_add'); // попап добавления карточки
- export const popupTypePic = document.querySelector('.popup_type_pic'); // попап с картинкой
+ //export const popupTypeEdit = document.querySelector('.popup_type_edit'); // попап редактирования профиля
+ //export const popupTypeAdd = document.querySelector('.popup_type_add'); // попап добавления карточки
+ //export const popupTypePic = document.querySelector('.popup_type_pic'); // попап с картинкой
   
     // Селекторы форм 
  export const popupFormEdit = document.querySelector('.popup__form_edit'); // форма редактирования профиля

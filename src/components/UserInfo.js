@@ -1,19 +1,19 @@
 export default class UserInfo {
-  constructor({name, description}) {
+  constructor({name, profession}) {
     this.name = name;
-    this.description = description;
+    this.profession = profession;
   }
 
   getUserInfo() {
     const profileData = {
       name: this.name.innerText,
-      description: this.description.innerText,
+      profession: this.profession.innerText,
     }
     return profileData;
   }
 
   setUserInfo(profileData) {
     this.name.textContent = profileData.name;
-    this.description.textContent = profileData.description;
+    this.profession.textContent = profileData.profession;
   }
 }

@@ -23,12 +23,12 @@ addPopupValidation.enableValidation();
 
 // экземпляр инфы о юзере
 
-const userInfo = new UserInfo({name: profileName, description: profileJob});
+const userInfo = new UserInfo({name: profileName, profession: profileJob});
 
 
 // попап с карточкой
 
-const popupWithImage = new PopupWithImage(popupTypePic  );
+const popupWithImage = new PopupWithImage('.popup_type_pic');
 popupWithImage.setEventListeners();
 
 
@@ -45,7 +45,7 @@ defaultCardSection.renderElements();
 
 // (DONE) попап формы добавления карточки
 
-const popupWithCard = new PopupWithForm(popupTypeAdd,
+const popupWithCard = new PopupWithForm('.popup_type_add',
   { handleFormSubmit: (formInput) => {
     const newCard = createCard(formInput);
       defaultCardSection.addItem(newCard)
@@ -58,13 +58,13 @@ const popupWithCard = new PopupWithForm(popupTypeAdd,
 
 // (DONE) попап формы редактирования профиля
 
-const popupWithProfile = new PopupWithForm(popupTypeEdit,
-  { handleFormSubmit: () => {
-    userInfo.setUserInfo({name: popupInputName.value, description: popupInputJob.value});
+const popupWithProfile = new PopupWithForm('.popup_type_edit',
+  { handleFormSubmit: (profileData) => {
+    userInfo.setUserInfo(profileData);
     popupWithProfile.close();
   }});
 
-popupWithProfile.setEventListeners();
+  popupWithProfile.setEventListeners();
 
 
 // открыть попап редактирования профиля
@@ -72,9 +72,9 @@ popupWithProfile.setEventListeners();
 buttonOpenPopupEditProfile.addEventListener('click', () => { 
   popupWithProfile.open();
   
-  const {name, description} = userInfo.getUserInfo();
+  const {name, profession} = userInfo.getUserInfo();
   popupInputName.value = name;
-  popupInputJob.value = description;
+  popupInputJob.value = profession;
 });
 
 
@@ -94,9 +94,6 @@ function createCard (item) {
   }); 
   return card.generateCard();
 }
-
-
-
 
 
 
