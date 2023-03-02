@@ -88,9 +88,6 @@ const popupWithImage = new PopupWithImage('.popup_type_pic');
 popupWithImage.setEventListeners();
 
 
-
-
-
 // (DONE) попап формы добавления карточки
 
 const popupWithCard = new PopupWithForm('.popup_type_add',
@@ -173,8 +170,10 @@ buttonOpenPopupAddCard.addEventListener('click', function () {
  
 avatarOverlay.addEventListener('click', function() {
   popupWithAvatar.open()
-  popupWithAvatar.changeButtonText('Сохранить')
   avatarPopupValidation.disableSubmitButton();
+  
+  popupWithAvatar.changeButtonText('Сохранить')
+
 })
 
 
