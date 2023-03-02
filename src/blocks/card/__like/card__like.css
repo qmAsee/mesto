@@ -2,6 +2,7 @@
   width: 22px;
   height: 19px;
   align-self: center;
+  margin-bottom: 3px;
   padding: 0;
   transition: opacity .2s ease-out;
   background-image: url('../../../images/like.svg');

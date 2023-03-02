@@ -14,7 +14,10 @@
           </header>
           <main>
             <section class="profile">
-              <img src="<%=require('./images/Avatar.png')%>" alt="аватар" class="profile__image">
+              <div class="profile__box">
+                <img src="<%=require('./images/Avatar.png')%>" alt="аватар" class="profile__image">
+                <div class="profile__overlay"></div>
+              </div>
               <div class="profile__info">
                 <div class="profile__container">
                   <h1 class="profile__name">
@@ -49,7 +52,7 @@
               <span class="username-error popup__error">Вы пропустили это поле</span>
               <input id="profession" type="text" class="popup__input popup__input_type_profession" name="profession" placeholder="Род деятельности" minlength="2" maxlength="200" required>
               <span class="profession-error popup__error">Вы пропустили это поле</span>
-              <button class="popup__button popup__button_type_edit" type="submit">Сохранить</button>
+              <button class="popup__button" type="submit">Сохранить</button>
             </form>
           </div>
         </div>
@@ -63,7 +66,7 @@
               <span class="place-error popup__error">Вы пропустили это поле</span>
               <input id="link" type="url" class="popup__input popup__input_type_place-link" name="link" placeholder="Ссылка на картинку" required>
               <span class="link-error popup__error">Введите адрес</span>
-              <button class="popup__button popup__button_type_add" type="submit">Создать</button>
+              <button class="popup__button" type="submit">Создать</button>
             </form>
           </div>
         </div>
@@ -73,7 +76,27 @@
             <figcaption class="popup__caption"></figcaption>
             <button type="button" class="popup__close"></button>
           </figure>
-        </div>  
+        </div>
+        <div class="popup popup_type_sure">
+          <div class="popup__content_sure">
+            <h3 class="popup__title">Вы уверены?</h3>
+            <form class="popup__form popup__form_confirm">
+              <button class="popup__button" type="submit">Да</button>
+            </form>
+            <button type="button" class="popup__close"></button>
+          </div>
+        </div>
+        <div class="popup popup_type_avatar">
+          <div class="popup__content_avatar">
+            <h3 class="popup__title">Обновить аватар</h3>
+            <form class="popup__form popup__form_avatar" novalidate>
+              <input id="link" type="url" class="popup__input popup__input_type_avatar" name="avatar" placeholder="Вставьте URL">
+              <span class="link-error popup__error">Введите адрес</span>
+              <button class="popup__button" type="submit">Сохранить</button>
+            </form>
+            <button type="button" class="popup__close"></button>
+          </div>
+        </div>
         <template class="card-template" id="card-template">
           <li class="card">
             <button type="button" class="card__trash">
@@ -81,8 +104,11 @@
             <img src=" " alt=" " class="card__image">
             <div class="card__wrapper">
               <h2 class="card__title"></h2>
-              <button type="button" class="card__like">
-              </button>
+              <div class="card__container">
+                <button type="button" class="card__like">
+                </button>
+                <span class="card__calc">1</span>
+              </div>
             </div>
           </li>
         </template>

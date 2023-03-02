@@ -6,13 +6,14 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._popupForm = this._popup.querySelector('.popup__form');
     this._inputList = this._popup.querySelectorAll('.popup__input');
+    this._saveButton = this._popupForm.querySelector('.popup__button')
   }
 
   _getInputValues() { //функция возвращает объект _formValues
     this._formValues = {};
 
     this._inputList.forEach((input) => {
-      this._formValues[input.name] = input.value
+      this._formValues[input.name] = input.value;
     })
 
     return this._formValues;
@@ -21,6 +22,10 @@ export default class PopupWithForm extends Popup {
   close() {
     super.close(); // вызывается метод из родительского класса
     this._popupForm.reset();
+  }
+
+  changeButtonText(text) {
+    this._saveButton.textContent = text;
   }
 
   setEventListeners() {

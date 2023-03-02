@@ -26,7 +26,7 @@ constructor(validationConfig, formElement) {
   this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
 }
 
-_showInputError(inputElement) {
+_showInputError(inputElement) { 
   const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
 
   errorElement.classList.remove(this._errorClassHidden);
@@ -70,8 +70,6 @@ _toggleButtonState() {
 }
 
 _setEventListeners() {
-  this._toggleButtonState(this._inputList);
-
   this._inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       this._checkInputValidity(inputElement);
