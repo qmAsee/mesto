@@ -54,9 +54,7 @@ export default class Card {
     this._elementTitle = this._element.querySelector('.card__title');
     this._numLikes = this._element.querySelector('.card__calc');
 
-    this._numLikes.textContent = this._likes.length;
-
-    console.log(this._likes) 
+    this._numLikes.textContent = this._likes.length; 
 
     this._elementImg.src = this._link;  
     this._elementImg.alt = this._name;
